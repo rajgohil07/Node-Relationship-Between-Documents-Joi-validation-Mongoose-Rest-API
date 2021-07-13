@@ -1,4 +1,4 @@
-# Node-Relationship-Between-Documents-Mongoose-MVC-Rest-API<br>
+# Node-Relationship-Between-Documents-Mongoose-Joi-Validator-MVC-Rest-API<br>
 
 Tech=><b>Node.js</b><br>
 Database=><b>Mongodb</b><br>
@@ -7,7 +7,7 @@ Database_backup=><b>src/db_backup</b><br>
 
 # Additional infomation
 
-<b>Designed a Project of the relation between documents using mongoose in nodejs with REST API Along followed by MVC structure which furnishes knowledge about one-to-one and one-to-many relationship<b><br><br>
+<b>Designed a Project of the relation between documents using mongoose in nodejs with REST API Along with Joi backend validator followed by MVC structure which furnishes knowledge about one-to-one and one-to-many relationship<b><br><br>
 
 <b>More info:</b>https://docs.mongodb.com/manual/applications/data-models-relationships/<br>
 
@@ -15,8 +15,8 @@ Database_backup=><b>src/db_backup</b><br>
 
 <b>express</b> @4.17.1<br>
 <b>mongoose</b> @5.13.2<br>
+<b>Joi</b> @17.4.1<br>
 <b>dotenv</b> @10.0.0<br>
-<b>bcrypt</b> @5.0.1<br>
 
 # How to Start
 
