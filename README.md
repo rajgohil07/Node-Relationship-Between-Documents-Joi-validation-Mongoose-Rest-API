@@ -1,4 +1,4 @@
-# Node-CRUD-Mongoose-MVC-Rest-API<br>
+# Node-Relationship-Between-Documents-Mongoose-MVC-Rest-API<br>
 
 Tech=><b>Node.js</b><br>
 Database=><b>Mongodb</b><br>
@@ -7,7 +7,7 @@ Database_backup=><b>src/db_backup</b><br>
 
 # Additional infomation
 
-<b>Created a Project of relation between documents using mongoose in nodejs with REST API Along followed by MVC structure which gives knowledge about one-to-one and one-to-many relationship</b><br><br>
+<b>Designed a Project of the relation between documents using mongoose in nodejs with REST API Along followed by MVC structure which furnishes knowledge about one-to-one and one-to-many relationship<b><br><br>
 
 <b>More info:</b>https://docs.mongodb.com/manual/applications/data-models-relationships/<br>
 
