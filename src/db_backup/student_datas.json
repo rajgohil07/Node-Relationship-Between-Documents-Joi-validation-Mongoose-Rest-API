@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "60ed4449fdbe20371cdd7d44"
+  },
+  "name": "updated",
+  "class": 3,
+  "email": "student@email.com",
+  "role_no": "33"
+},{
+  "_id": {
+    "$oid": "60ed4452fdbe20371cdd7d46"
+  },
+  "name": "updated 1",
+  "class": 1,
+  "email": "student1@email.com",
+  "role_no": "33"
+},{
+  "_id": {
+    "$oid": "60ed445ffdbe20371cdd7d48"
+  },
+  "name": "updated 12",
+  "class": 12,
+  "email": "student12@email.com",
+  "role_no": "31"
+},{
+  "_id": {
+    "$oid": "60ed446dfdbe20371cdd7d4a"
+  },
+  "name": "updated 11",
+  "class": 11,
+  "email": "student2@email.com",
+  "role_no": "05"
+}]
