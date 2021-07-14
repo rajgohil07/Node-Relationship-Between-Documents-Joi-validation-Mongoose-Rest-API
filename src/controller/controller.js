@@ -29,29 +29,35 @@ exports.InsertStudent = async (req, res) => {
 exports.AddStudentToTeacher = async (req, res) => {
 
     const teacher_id = req.params.teacher_id;
-    const student_id = req.params.student_id;
+    const student_arr = req.body.data;
 
     const data = await teacher_data.findByIdAndUpdate(teacher_id, {
         $push: {
-            having_students: student_id
+            students: { $each: student_arr }
         },
     }, { new: true });
 
     res.send({ message: 'new updated data', data });
-
 };
 
 exports.RemoveStudentFromTeacher = async (req, res) => {
 
     const teacher_id = req.params.teacher_id;
-    const student_id = req.params.student_id;
+    const student_arr = req.body.data;
 
-    const data = await teacher_data.findOneAndUpdate({ _id: teacher_id }, {
-        $pull: { having_students: student_id }
-    }, { new: true })
-        .populate('having_students', 'name class role_no -_id');
+    try {
 
-    res.send({ message: "data after deleted student from " + data.name, data });
+        const data = await teacher_data.findOneAndUpdate({ _id: teacher_id }, {
+            $pull: { students: { $in: student_arr } }
+        }, { new: true })
+            .populate('students', 'name class role_no -_id');
+
+        res.send({ message: "data after deleted student from " + data.name, data });
+
+    } catch (err) {
+        res.send({ message: "error in fetch data due to:" + err.message });
+    }
+
 };
 
 exports.GetStudents = async (req, res) => {
@@ -60,8 +66,40 @@ exports.GetStudents = async (req, res) => {
 };
 
 exports.GetTeachers = async (req, res) => {
-    const data = await teacher_data.find().populate('having_students', 'name class role_no -_id');
-    data.length ? res.send({ message: 'all teachers data', data }) : res.send({ message: "No data available to display" });
+
+    try {
+        const data = await teacher_data.find().populate('students', 'name class role_no -_id');
+        data.length ? res.send({ message: 'all teachers data', data }) : res.send({ message: "No data available to display" });
+    } catch (err) {
+        res.send({ message: "error in fetch data due to:" + err.message });
+    }
+};
+
+exports.DeleteStudent = async (req, res) => {
+
+    const student_id = req.params.id;
+    const data = await student_data.findByIdAndDelete(student_id);
+
+    res.send({ message: "student data of " + data.name + " sucessfully deleted", deleted_data: data });
+};
+
+exports.DeleteTeacher = async (req, res) => {
+
+    const teacher_id = req.params.id;
+
+    try {
+        const data = await teacher_data.findById(teacher_id).populate('students', 'name class role_no -_id');
+        const student_data = data.students;
+
+        if (!data.students.length) {
+            const data = await teacher_data.findByIdAndDelete(teacher_id);
+            res.send({ message: "Teacher data of " + data.name + " sucessfully deleted", deleted_data: data });
+        } else
+            res.send({ message: "Please remove the remaing student data first", student_data, status: "failed" });
+
+    } catch (err) {
+        res.send({ message: "error in fetch data due to:" + err.message });
+    }
 };
 
 exports.DeleteAllData = async (req, res) => {

@@ -1,32 +1,33 @@
 [{
   "_id": {
-    "$oid": "60ed47c1256b7d12e8dd32f6"
+    "$oid": "60ee8103cf31ab2b6870a33c"
   },
-  "having_students": [
+  "students": [
     {
-      "$oid": "60ed4449fdbe20371cdd7d44"
+      "$oid": "60ee80f5cf31ab2b6870a33a"
     },
     {
-      "$oid": "60ed446dfdbe20371cdd7d4a"
-    },
-    {
-      "$oid": "60ed445ffdbe20371cdd7d48"
+      "$oid": "60ee80dbcf31ab2b6870a338"
     }
   ],
-  "name": "sunita shetti",
-  "email": "sunita@email.com"
-},{
-  "_id": {
-    "$oid": "60ed47d1256b7d12e8dd32f8"
-  },
-  "having_students": [],
-  "name": "maitri moni",
-  "email": "maitri@email.com"
-},{
-  "_id": {
-    "$oid": "60ed47dc256b7d12e8dd32fa"
-  },
-  "having_students": [],
   "name": "varun mehta",
   "email": "varun@email.com"
+},{
+  "_id": {
+    "$oid": "60ee811dcf31ab2b6870a33e"
+  },
+  "students": [
+    {
+      "$oid": "60ee80bccf31ab2b6870a336"
+    }
+  ],
+  "name": "samji sharma",
+  "email": "samji123@email.com"
+},{
+  "_id": {
+    "$oid": "60ee8132cf31ab2b6870a340"
+  },
+  "students": [],
+  "name": "sushma mishra",
+  "email": "sushma8329@email.com"
 }]

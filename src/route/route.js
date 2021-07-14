@@ -9,11 +9,11 @@ module.exports = (app) => {
     //to insert student
     app.post('/insert_student', middleware.ValidateStudent, controller.InsertStudent);
 
-    //to add student to perticular teacher
-    app.get('/add_student_to_teacher/:teacher_id/:student_id', controller.AddStudentToTeacher);
+    //to add multiple student to perticular teacher
+    app.put('/add_student_to_teacher/:teacher_id', middleware.ValidateArray, controller.AddStudentToTeacher);
 
-    //to remove student to perticular teacher
-    app.get('/remove_student_from_teacher/:teacher_id/:student_id', controller.RemoveStudentFromTeacher);
+    //to remove multiple student to perticular teacher
+    app.delete('/remove_student_from_teacher/:teacher_id', middleware.ValidateArray, controller.RemoveStudentFromTeacher);
 
     //to display all student info
     app.get('/display_student', controller.GetStudents);
@@ -21,8 +21,14 @@ module.exports = (app) => {
     //to display all teacher info
     app.get('/display_teacher', controller.GetTeachers);
 
+    //to drop specfic student
+    app.delete('/delete_student/:id', controller.DeleteStudent);
+
+    //to drop specfic teacher
+    app.delete('/delete_teacher/:id', controller.DeleteTeacher);
+
     //to drop entire collections
-    app.get('/delete_all', controller.DeleteAllData);
+    app.delete('/delete_all', controller.DeleteAllData);
 
     //if invalid url passed
     app.get('*', controller.NotFound);

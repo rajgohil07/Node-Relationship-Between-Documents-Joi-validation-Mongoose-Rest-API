@@ -4,7 +4,7 @@ module.exports = () => {
     const TeacherSchema = new mongoose.Schema({
         name: String,
         email: String,
-        having_students: {
+        students: {
             type: [mongoose.ObjectId],
             ref: 'student_data'
         }
