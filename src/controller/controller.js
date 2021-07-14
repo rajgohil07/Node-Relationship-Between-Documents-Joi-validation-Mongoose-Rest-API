@@ -104,13 +104,14 @@ exports.DeleteTeacher = async (req, res) => {
 
 exports.DeleteAllData = async (req, res) => {
 
-    const delete_all_data_students = await student_data.deleteMany();
-    const delete_all_data_teachers = await teacher_data.deleteMany();
+    const delete_students = await student_data.deleteMany();
+    const delete_teachers = await teacher_data.deleteMany();
 
-    const sucess_string = delete_all_data_students.deletedCount || delete_all_data_teachers.deletedCount
-        ? `${delete_all_data_students.deletedCount + delete_all_data_teachers.deletedCount} Documemt(s) has been deleted!`
+    const sucess_string = delete_students.deletedCount || delete_teachers.deletedCount
+        ? `${delete_students.deletedCount + delete_teachers.deletedCount} Documemt(s) has been deleted!`
         : `No documemts found to delete!`
 
     res.send({ message: sucess_string });
+
 
 };
